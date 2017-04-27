@@ -187,6 +187,7 @@ class LightsSamlSpAuthenticationProvider implements AuthenticationProviderInterf
 
         $username = $this->usernameMapper->getUsername($token->getResponse());
 
+        $this->userProvider->setToken($token);
         $user = $this->userProvider->loadUserByUsername($username);
 
         if (false === $user instanceof UserInterface) {
